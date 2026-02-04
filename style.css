@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.container{
+    border: ipx solid black;
+    display: flex;
+    flex-direction: row;
+}
+.black{
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    background-color: black;
+}
+.white{
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    background-color: white;
+}
