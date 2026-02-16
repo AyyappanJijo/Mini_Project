@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Navbar</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(120deg,#f6d365,#fda085);
+}
+
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(255,255,255,0.15);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+    animation:slideDown 0.8s ease;
+}
+
+/* LOGO */
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#6a11cb;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.logo:hover{
+    transform:scale(1.1);
+}
+
+/* NAV LINKS */
+nav ul{
+    list-style:none;
+}
+
+nav ul li{
+    display:inline-block;
+    margin:0 15px;
+    position:relative;
+}
+
+nav ul li a{
+    text-decoration:none;
+    font-size:18px;
+    color:#333;
+    padding:5px 0;
+    transition:0.3s;
+}
+
+/* UNDERLINE ANIMATION */
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:3px;
+    background:#6a11cb;
+    left:0;
+    bottom:-5px;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#6a11cb;
+}
+
+/* LOGIN BUTTON */
+.login-btn{
+    padding:10px 22px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(45deg,#6a11cb,#2575fc);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* HEADER ANIMATION */
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">Info Tech</div>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Price</a></li>
+        </ul>
+    </nav>
+
+    <button class="login-btn">Login</button>
+
+</header>
+
+</body>
+</html>
