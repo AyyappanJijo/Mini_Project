@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Intern Management Dashboard</h1>
+    </header>
+
+    <section class="form-section">
+        <h2>Add Intern</h2>
+        <form id="internForm">
+            <input type="text" id="name" placeholder="Intern Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="domain" placeholder="Domain (Java, UI, Data)" required>
+
+            <label for="status">Status:</label>
+            <select id="status">
+                <option value="Active">Active</option>
+                <option value="Completed">Completed</option>
+                <option value="On Hold">On Hold</option>
+            </select>
+
+            <button type="submit">Add Intern</button>
+        </form>
+    </section>
+
+    <section class="filter-section">
+        <h2>Filter By Status</h2>
+        <label for="filterStatus">Filter By Status:</label>
+        <select id="filterStatus">
+            <option value="All">All</option>
+            <option value="Active">Active</option>
+            <option value="Completed">Completed</option>
+            <option value="On Hold">On Hold</option>
+        </select>
+    </section>
+
+    <section class="intern-list">
+        <h2>Intern List</h2>
+        <div id="internContainer"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
