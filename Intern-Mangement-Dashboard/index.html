@@ -8,63 +8,44 @@
 </head>
 <body>
 
-<header>
-    <h1>Intern Management Dashboard</h1>
-    <button id="darkModeToggle">🌙 Dark Mode</button>
-</header>
+    <header>
+        <h1>Intern Management Dashboard</h1>
+    </header>
 
-<section class="stats">
-    <div class="stat-card">Total: <span id="totalCount">0</span></div>
-    <div class="stat-card">Active: <span id="activeCount">0</span></div>
-    <div class="stat-card">Completed: <span id="completedCount">0</span></div>
-    <div class="stat-card">On Hold: <span id="onHoldCount">0</span></div>
-</section>
+    <section class="form-section">
+        <h2>Add Intern</h2>
+        <form id="internForm">
+            <input type="text" id="name" placeholder="Intern Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="domain" placeholder="Domain (Java, UI, Data)" required>
 
-<section class="form-section">
-    <h2>Add / Edit Intern</h2>
-    <form id="internForm">
-        <input type="hidden" id="editIndex">
+            <label for="status">Status:</label>
+            <select id="status">
+                <option value="Active">Active</option>
+                <option value="Completed">Completed</option>
+                <option value="On Hold">On Hold</option>
+            </select>
 
-        <input type="text" id="name" placeholder="Intern Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="text" id="domain" placeholder="Domain" required>
+            <button type="submit">Add Intern</button>
+        </form>
+    </section>
 
-        <label for="status">Status:</label>
-        <select id="status">
+    <section class="filter-section">
+        <h2>Filter By Status</h2>
+        <label for="filterStatus">Filter By Status:</label>
+        <select id="filterStatus">
+            <option value="All">All</option>
             <option value="Active">Active</option>
             <option value="Completed">Completed</option>
             <option value="On Hold">On Hold</option>
         </select>
+    </section>
 
-        <button type="submit">Save</button>
-    </form>
-</section>
+    <section class="intern-list">
+        <h2>Intern List</h2>
+        <div id="internContainer"></div>
+    </section>
 
-<section class="filter-search">
-    <input type="text" id="searchInput" placeholder="Search by name...">
-    <label for="filterStatus">Filter by Status:</label>
-    <select id="filterStatus">
-        <option value="All">All</option>
-        <option value="Active">Active</option>
-        <option value="Completed">Completed</option>
-        <option value="On Hold">On Hold</option>
-    </select>
-</section>
-
-<section class="intern-list">
-    <div id="internContainer"></div>
-</section>
-
-<div class="top-actions">
-    <button id="exportBtn">📥 Export to Excel</button>
-</div>
-
-<div class="pagination">
-    <button id="prevPage">Previous</button>
-    <span id="pageInfo"></span>
-    <button id="nextPage">Next</button>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
