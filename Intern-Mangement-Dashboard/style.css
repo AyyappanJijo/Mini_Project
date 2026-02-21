@@ -1,19 +1,65 @@
+:root {
+    --bg-color: #f4f6f9;
+    --text-color: #333;
+    --card-color: white;
+}
+
+body.dark {
+    --bg-color: #1e1e1e;
+    --text-color: #fff;
+    --card-color: #2c2c2c;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f4f6f9;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
 }
 
 header {
-    background-color: #2c3e50;
+    background: linear-gradient(90deg, #2c3e50, #3498db);
     color: white;
     padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
 }
 
 section {
     padding: 20px;
-    margin: 20px;
+    margin: 10px 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: var(--card-color);
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 form {
@@ -24,21 +70,14 @@ form {
 
 input, select {
     padding: 8px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-button {
-    padding: 8px 15px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #2980b9;
+.filter-search {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 #internContainer {
@@ -48,25 +87,56 @@ button:hover {
 }
 
 .intern-card {
-    background-color: white;
+    background: var(--card-color);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .intern-card h3 {
-    margin: 0 0 10px 0;
+    margin-top: 0;
 }
 
-.status {
-    font-weight: bold;
+.card-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
 }
 
 .delete-btn {
-    margin-top: 10px;
     background-color: #e74c3c;
 }
 
-.delete-btn:hover {
-    background-color: #c0392b;
+
+.top-actions {
+    margin: 10px 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.intern-card {
+    animation: fadeIn 0.4s ease-in-out;
+    transform: translateY(0);
+    transition: transform 0.3s;
+}
+
+.intern-card:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
