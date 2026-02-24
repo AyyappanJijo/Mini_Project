@@ -25,15 +25,24 @@
     <form id="internForm">
         <input type="hidden" id="editIndex">
 
-        <input type="text" id="name" placeholder="Intern Name" required>
+        <input type="text" id="internId" placeholder="Intern ID" required>
+        <input type="text" id="internName" placeholder="Intern Name" required>
         <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+        <input type="text" id="college" placeholder="College" required>
         <input type="text" id="domain" placeholder="Domain" required>
 
+        <label>Internship Start Date:</label>
+        <input type="date" id="internshipStartDate" title="Internship Start Date" required>
+
+        <label>Internship End Date:</label>
+        <input type="date" id="internshipEndDate" title="Internship End Date" required>
+
         <label for="status">Status:</label>
-        <select id="status">
-            <option value="Active">Active</option>
-            <option value="Completed">Completed</option>
-            <option value="On Hold">On Hold</option>
+        <select id="status" title="Internship Status">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="DROPPED">DROPPED</option>
         </select>
 
         <button type="submit">Save</button>
