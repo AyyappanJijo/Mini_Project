@@ -16,27 +16,26 @@ let matches=0
 let timer=0
 let interval
 
-const flipSound=new Audio("sounds/flip.mp3")
-const matchSound=new Audio("sounds/match.mp3")
-const winSound=new Audio("sounds/win.mp3")
+let multiplayer=false
+let playerTurn=1
+let player1Score=0
+let player2Score=0
 
 function startGame(){
 
 clearInterval(interval)
 
 moves=0
-timer=0
 matches=0
+timer=0
 
 movesDisplay.textContent=0
 timerDisplay.textContent=0
 
-let difficulty=difficultySelect.value
-
 let pairCount=4
 
-if(difficulty==="medium") pairCount=6
-if(difficulty==="hard") pairCount=8
+if(difficultySelect.value==="medium") pairCount=6
+if(difficultySelect.value==="hard") pairCount=8
 
 let selected=emojis.slice(0,pairCount)
 
@@ -44,21 +43,15 @@ cards=[...selected,...selected]
 
 cards.sort(()=>0.5-Math.random())
 
-createBoard(pairCount)
+createBoard()
 
 startTimer()
 
 }
 
-function createBoard(pairCount){
+function createBoard(){
 
 board.innerHTML=""
-
-let columns=4
-if(pairCount===8) columns=4
-if(pairCount===6) columns=4
-
-board.style.gridTemplateColumns=`repeat(${columns},1fr)`
 
 cards.forEach(emoji=>{
 
@@ -67,15 +60,10 @@ const card=document.createElement("div")
 card.className="card"
 
 card.innerHTML=`
-
 <div class="card-inner">
-
 <div class="front">${emoji}</div>
-
 <div class="back">?</div>
-
 </div>
-
 `
 
 card.dataset.emoji=emoji
@@ -91,25 +79,18 @@ board.appendChild(card)
 function flipCard(){
 
 if(lock) return
-
 if(this===firstCard) return
-
-flipSound.play()
 
 this.classList.add("flip")
 
 if(!firstCard){
-
 firstCard=this
-
 return
-
 }
 
 secondCard=this
 
 moves++
-
 movesDisplay.textContent=moves
 
 checkMatch()
@@ -120,16 +101,24 @@ function checkMatch(){
 
 if(firstCard.dataset.emoji===secondCard.dataset.emoji){
 
-matchSound.play()
-
 matches++
+
+if(multiplayer){
+
+if(playerTurn===1){
+player1Score++
+document.getElementById("p1").textContent=player1Score
+}else{
+player2Score++
+document.getElementById("p2").textContent=player2Score
+}
+
+}
 
 resetTurn()
 
 if(matches===cards.length/2){
-
 winGame()
-
 }
 
 }else{
@@ -142,6 +131,13 @@ firstCard.classList.remove("flip")
 secondCard.classList.remove("flip")
 
 resetTurn()
+
+if(multiplayer){
+
+playerTurn = playerTurn===1 ? 2 : 1
+document.getElementById("turn").textContent="Player "+playerTurn
+
+}
 
 },800)
 
@@ -160,7 +156,6 @@ function startTimer(){
 interval=setInterval(()=>{
 
 timer++
-
 timerDisplay.textContent=timer
 
 },1000)
@@ -171,9 +166,17 @@ function winGame(){
 
 clearInterval(interval)
 
-winSound.play()
+if(multiplayer){
+
+if(player1Score>player2Score) alert("🏆 Player 1 Wins!")
+else if(player2Score>player1Score) alert("🏆 Player 2 Wins!")
+else alert("Draw!")
+
+}else{
 
 saveScore()
+
+}
 
 confettiEffect()
 
@@ -215,6 +218,28 @@ leaderboard.appendChild(li)
 
 document.getElementById("start").addEventListener("click",startGame)
 
+document.getElementById("multiplayer").addEventListener("click",()=>{
+
+multiplayer=true
+
+player1Score=0
+player2Score=0
+playerTurn=1
+
+document.getElementById("p1").textContent=0
+document.getElementById("p2").textContent=0
+document.getElementById("turn").textContent="Player 1"
+
+alert("Multiplayer Mode Activated")
+
+})
+
+document.getElementById("themeToggle").addEventListener("click",()=>{
+
+document.body.classList.toggle("light")
+
+})
+
 renderLeaderboard()
 
 function confettiEffect(){
@@ -226,44 +251,12 @@ const ctx=canvas.getContext("2d")
 canvas.width=window.innerWidth
 canvas.height=window.innerHeight
 
-let pieces=[]
-
 for(let i=0;i<150;i++){
-
-pieces.push({
-
-x:Math.random()*canvas.width,
-
-y:Math.random()*canvas.height,
-
-size:Math.random()*6+4,
-
-speed:Math.random()*3+2
-
-})
-
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-pieces.forEach(p=>{
 
 ctx.fillStyle=`hsl(${Math.random()*360},100%,50%)`
 
-ctx.fillRect(p.x,p.y,p.size,p.size)
-
-p.y+=p.speed
-
-if(p.y>canvas.height) p.y=0
-
-})
-
-requestAnimationFrame(draw)
+ctx.fillRect(Math.random()*canvas.width,Math.random()*canvas.height,5,5)
 
 }
-
-draw()
 
 }
