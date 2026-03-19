@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SNEK — Neon Snake Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+
+  <div class="container">
+
+    <header>
+      <div class="logo">SN<span>EK</span></div>
+      <div class="header-stats">
+        <div class="stat-box">
+          <div class="stat-label">SCORE</div>
+          <div class="stat-value" id="score">0</div>
+        </div>
+        <div class="stat-box highlight">
+          <div class="stat-label">BEST</div>
+          <div class="stat-value" id="highScore">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">LEVEL</div>
+          <div class="stat-value" id="level">1</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="game-wrap">
+      <!-- Side panel left -->
+      <div class="side-panel left">
+        <div class="panel-label">CONTROLS</div>
+        <div class="key-grid">
+          <div class="key-row"><kbd>↑</kbd></div>
+          <div class="key-row"><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div>
+          <div class="key-hint">or WASD</div>
+        </div>
+        <div class="divider"></div>
+        <div class="panel-label">ACTIONS</div>
+        <div class="key-grid">
+          <div class="key-row"><kbd>P</kbd> <span>Pause</span></div>
+          <div class="key-row"><kbd>R</kbd> <span>Restart</span></div>
+        </div>
+      </div>
+
+      <!-- Canvas -->
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+        <!-- Overlays -->
+        <div class="overlay" id="startOverlay">
+          <div class="overlay-icon">🐍</div>
+          <div class="overlay-title">SNEK</div>
+          <div class="overlay-sub">Press <kbd>SPACE</kbd> or tap to start</div>
+          <button class="btn-start" id="startBtn">START GAME</button>
+        </div>
+
+        <div class="overlay hidden" id="pauseOverlay">
+          <div class="overlay-icon">⏸</div>
+          <div class="overlay-title">PAUSED</div>
+          <div class="overlay-sub">Press <kbd>P</kbd> to resume</div>
+          <button class="btn-start" id="resumeBtn">RESUME</button>
+        </div>
+
+        <div class="overlay hidden" id="gameOverOverlay">
+          <div class="overlay-icon">💀</div>
+          <div class="overlay-title">GAME OVER</div>
+          <div class="go-score">Score: <span id="finalScore">0</span></div>
+          <div class="go-best" id="newBestMsg" style="display:none">🏆 New High Score!</div>
+          <button class="btn-start" id="restartBtn">PLAY AGAIN</button>
+        </div>
+      </div>
+
+      <!-- Side panel right -->
+      <div class="side-panel right">
+        <div class="panel-label">SPEED</div>
+        <div class="speed-bar-wrap">
+          <div class="speed-bar" id="speedBar"></div>
+        </div>
+        <div class="speed-val" id="speedVal">1x</div>
+        <div class="divider"></div>
+        <div class="panel-label">LENGTH</div>
+        <div class="length-val" id="lengthVal">1</div>
+        <div class="divider"></div>
+        <div class="panel-label">STATUS</div>
+        <div class="status-dot" id="statusDot"></div>
+        <div class="status-txt" id="statusTxt">READY</div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-tip">Eat 🍎 to grow · Speed increases every 5 points · Don't hit walls or yourself!</div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
