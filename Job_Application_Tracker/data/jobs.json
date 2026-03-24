@@ -1,0 +1,26 @@
+[
+  {
+    "company": "Zoho",
+    "role": "Software Engineer",
+    "location": "Chennai",
+    "status": "Applied",
+    "notes": "Applied via LinkedIn. HR contact: priya@zoho.com",
+    "followup": "2026-04-01"
+  },
+  {
+    "company": "Freshworks",
+    "role": "Frontend Developer",
+    "location": "Chennai",
+    "status": "Interview",
+    "notes": "Technical round on April 5th, prepare system design",
+    "followup": "2026-04-05"
+  },
+  {
+    "company": "TCS",
+    "role": "Associate Engineer",
+    "location": "Bangalore",
+    "status": "Rejected",
+    "notes": "Failed the aptitude round",
+    "followup": ""
+  }
+]
