@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Tech — Future of Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ANIMATED BACKGROUND -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a href="#home" class="logo">
+      <div class="logo-icon">IT</div>
+      Info Tech
+    </a>
+    <nav>
+      <ul id="navLinks">
+        <li><a href="#home"     class="nav-link active">Home</a></li>
+        <li><a href="#about"    class="nav-link">About</a></li>
+        <li><a href="#product"  class="nav-link">Product</a></li>
+        <li><a href="#category" class="nav-link">Category</a></li>
+        <li><a href="#price"    class="nav-link">Price</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+      <button class="login-btn" id="loginBtn"><span>Login</span></button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#home"     class="nav-link active">Home     <span class="arrow">›</span></a></li>
+      <li><a href="#about"    class="nav-link">About    <span class="arrow">›</span></a></li>
+      <li><a href="#product"  class="nav-link">Product  <span class="arrow">›</span></a></li>
+      <li><a href="#category" class="nav-link">Category <span class="arrow">›</span></a></li>
+      <li><a href="#price"    class="nav-link">Price    <span class="arrow">›</span></a></li>
+    </ul>
+    <div class="mobile-divider"></div>
+    <button class="mobile-login" id="mobileLoginBtn">Login to Info Tech →</button>
+  </div>
+
+  <!-- ══ SECTION 1: HOME ══ -->
+  <section class="section hero-section" id="home">
+    <div class="hero-content">
+      <div class="hero-tag">✦ The Future of Tech is Now</div>
+      <h1 class="hero-title">
+        Powering the<br>
+        <span class="gradient-text">Next Generation</span><br>
+        of Technology
+      </h1>
+      <p class="hero-sub">
+        Explore cutting-edge AI, cloud infrastructure, and developer tools shaping the digital world in 2025 and beyond.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="document.getElementById('product').scrollIntoView({behavior:'smooth'})">Explore Products →</button>
+        <button class="btn-ghost"   onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Our Story</button>
+      </div>
+
+      <!-- Live news ticker -->
+      <div class="ticker-wrap">
+        <span class="ticker-label">🔴 LIVE</span>
+        <div class="ticker-track">
+          <div class="ticker-items">
+            <span>OpenAI releases GPT-5 with multimodal reasoning</span>
+            <span>·</span>
+            <span>NVIDIA unveils Blackwell Ultra GPU architecture</span>
+            <span>·</span>
+            <span>Meta's Llama 4 goes open source</span>
+            <span>·</span>
+            <span>Apple Intelligence expands to 40+ languages</span>
+            <span>·</span>
+            <span>Quantum computing hits 1,000-qubit milestone</span>
+            <span>·</span>
+            <span>Google DeepMind's AlphaFold 3 cracks protein folding</span>
+            <span>·</span>
+            <span>OpenAI releases GPT-5 with multimodal reasoning</span>
+            <span>·</span>
+            <span>NVIDIA unveils Blackwell Ultra GPU architecture</span>
+            <span>·</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating stat cards -->
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-num">4.9B</div>
+        <div class="stat-label">Internet Users</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-num">$4.7T</div>
+        <div class="stat-label">Global IT Spend 2025</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">97M</div>
+        <div class="stat-label">AI Jobs by 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2: ABOUT ══ -->
+  <section class="section about-section" id="about">
+    <div class="section-inner">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Building Tomorrow's<br><span class="gradient-text">Digital Infrastructure</span></h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Founded in 2019, <strong>Info Tech</strong> is a full-stack technology company headquartered in Chennai, Tamil Nadu. We help startups, enterprises, and developers build, scale, and secure their digital products.</p>
+          <p>Our team of 200+ engineers, designers, and cloud architects has shipped products used by over 2 million users across 35 countries.</p>
+          <div class="about-stats">
+            <div class="astat"><span>200+</span>Engineers</div>
+            <div class="astat"><span>35</span>Countries</div>
+            <div class="astat"><span>2M+</span>Users</div>
+            <div class="astat"><span>6</span>Years</div>
+          </div>
+        </div>
+        <div class="about-cards">
+          <div class="about-card"><div class="ac-icon">🚀</div><h4>Our Mission</h4><p>Democratize enterprise-grade technology for every developer and business, regardless of size.</p></div>
+          <div class="about-card"><div class="ac-icon">🌐</div><h4>Global Reach</h4><p>Data centres in 8 regions ensure sub-20ms latency for users anywhere on the planet.</p></div>
+          <div class="about-card"><div class="ac-icon">🔒</div><h4>Security First</h4><p>SOC 2 Type II, ISO 27001 certified. Zero-trust architecture built into every layer.</p></div>
+          <div class="about-card"><div class="ac-icon">♻️</div><h4>Green Tech</h4><p>100% renewable energy across all data centres since 2023. Carbon-neutral by 2026.</p></div>
+        </div>
+      </div>
+
+      <div class="team-row">
+        <div class="team-card"><div class="team-avatar" style="background:linear-gradient(135deg,#7c3aed,#06b6d4)">AK</div><div class="team-name">Arjun Kumar</div><div class="team-role">CEO & Co-Founder</div></div>
+        <div class="team-card"><div class="team-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">PR</div><div class="team-name">Priya Rajan</div><div class="team-role">CTO</div></div>
+        <div class="team-card"><div class="team-avatar" style="background:linear-gradient(135deg,#10b981,#3b82f6)">SM</div><div class="team-name">Suresh Mani</div><div class="team-role">Head of Cloud</div></div>
+        <div class="team-card"><div class="team-avatar" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">DN</div><div class="team-name">Divya Nair</div><div class="team-role">VP Engineering</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3: PRODUCT ══ -->
+  <section class="section product-section" id="product">
+    <div class="section-inner">
+      <div class="section-label">What We Build</div>
+      <h2 class="section-title">Our <span class="gradient-text">Products</span></h2>
+      <p class="section-sub">Enterprise-grade tools that developers actually love using.</p>
+
+      <div class="product-grid">
+        <div class="product-card featured">
+          <div class="pc-badge">Most Popular</div>
+          <div class="pc-icon">🤖</div>
+          <h3>IntelliCore AI</h3>
+          <p>Production-ready AI inference engine. Deploy any LLM with one command. Built-in rate limiting, caching, and observability.</p>
+          <ul class="pc-features"><li>✓ GPT-4, Claude, Gemini integrations</li><li>✓ 99.99% uptime SLA</li><li>✓ Real-time streaming</li></ul>
+          <div class="pc-lang">Python · Node.js · Go · REST</div>
+        </div>
+        <div class="product-card">
+          <div class="pc-icon">☁️</div>
+          <h3>CloudDeploy</h3>
+          <p>Zero-downtime deployments across AWS, GCP, and Azure with a single config file. GitOps-native.</p>
+          <ul class="pc-features"><li>✓ Multi-cloud orchestration</li><li>✓ Auto-scaling policies</li><li>✓ Cost optimiser built-in</li></ul>
+          <div class="pc-lang">Docker · Kubernetes · Terraform</div>
+        </div>
+        <div class="product-card">
+          <div class="pc-icon">🔐</div>
+          <h3>SecureVault</h3>
+          <p>Secrets management and identity platform. Store API keys, certificates, and credentials with zero-knowledge encryption.</p>
+          <ul class="pc-features"><li>✓ AES-256 encryption</li><li>✓ RBAC & audit logs</li><li>✓ GitHub & Slack integration</li></ul>
+          <div class="pc-lang">All languages supported</div>
+        </div>
+        <div class="product-card">
+          <div class="pc-icon">📊</div>
+          <h3>DataPulse</h3>
+          <p>Real-time analytics pipeline. Ingest, process, and visualise billions of events with sub-second latency.</p>
+          <ul class="pc-features"><li>✓ Kafka-compatible API</li><li>✓ SQL & NoSQL support</li><li>✓ Live dashboards</li></ul>
+          <div class="pc-lang">Spark · Flink · ClickHouse</div>
+        </div>
+        <div class="product-card">
+          <div class="pc-icon">🌐</div>
+          <h3>EdgeNet CDN</h3>
+          <p>Global content delivery with 180+ PoPs. Automatic image optimisation, edge functions, and DDoS protection.</p>
+          <ul class="pc-features"><li>✓ &lt;5ms global latency</li><li>✓ Edge compute runtime</li><li>✓ WebAssembly support</li></ul>
+          <div class="pc-lang">Any stack · Any framework</div>
+        </div>
+        <div class="product-card">
+          <div class="pc-icon">🧪</div>
+          <h3>TestForge</h3>
+          <p>AI-powered automated testing platform. Generate, run, and maintain test suites with zero manual effort.</p>
+          <ul class="pc-features"><li>✓ AI test generation</li><li>✓ Visual regression</li><li>✓ Load testing built-in</li></ul>
+          <div class="pc-lang">Jest · Cypress · Playwright</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 4: CATEGORY ══ -->
+  <section class="section category-section" id="category">
+    <div class="section-inner">
+      <div class="section-label">Tech Landscape</div>
+      <h2 class="section-title">Explore by <span class="gradient-text">Category</span></h2>
+      <p class="section-sub">The fastest-growing sectors in the global technology ecosystem.</p>
+
+      <div class="category-grid">
+        <div class="cat-card"><div class="cat-emoji">🤖</div><h3>Artificial Intelligence</h3><p>LLMs, computer vision, NLP, and autonomous agents reshaping every industry.</p><div class="cat-tags"><span>Machine Learning</span><span>Deep Learning</span><span>GenAI</span><span>MLOps</span></div><div class="cat-growth">↑ 38% YoY growth</div></div>
+        <div class="cat-card"><div class="cat-emoji">☁️</div><h3>Cloud Computing</h3><p>Infrastructure as code, serverless, and multi-cloud strategies for scale.</p><div class="cat-tags"><span>AWS</span><span>Azure</span><span>GCP</span><span>Serverless</span></div><div class="cat-growth">↑ 22% YoY growth</div></div>
+        <div class="cat-card"><div class="cat-emoji">🔐</div><h3>Cybersecurity</h3><p>Zero-trust architecture, threat intelligence, and next-gen endpoint security.</p><div class="cat-tags"><span>Zero Trust</span><span>SIEM</span><span>DevSecOps</span><span>IAM</span></div><div class="cat-growth">↑ 15% YoY growth</div></div>
+        <div class="cat-card"><div class="cat-emoji">⛓️</div><h3>Blockchain & Web3</h3><p>Decentralised finance, NFT infrastructure, and smart contract platforms.</p><div class="cat-tags"><span>DeFi</span><span>Solidity</span><span>Layer 2</span><span>dApps</span></div><div class="cat-growth">↑ 29% YoY growth</div></div>
+        <div class="cat-card"><div class="cat-emoji">📡</div><h3>IoT & Edge</h3><p>Smart devices, industrial automation, and real-time edge processing.</p><div class="cat-tags"><span>MQTT</span><span>Edge AI</span><span>5G</span><span>RTOS</span></div><div class="cat-growth">↑ 19% YoY growth</div></div>
+        <div class="cat-card"><div class="cat-emoji">⚛️</div><h3>Quantum Computing</h3><p>Post-quantum cryptography, hybrid algorithms, and qubit programming.</p><div class="cat-tags"><span>Qiskit</span><span>Q#</span><span>PQC</span><span>Annealing</span></div><div class="cat-growth">↑ 45% YoY growth</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5: PRICE ══ -->
+  <section class="section price-section" id="price">
+    <div class="section-inner">
+      <div class="section-label">Simple Pricing</div>
+      <h2 class="section-title">Choose Your <span class="gradient-text">Plan</span></h2>
+      <p class="section-sub">No hidden fees. Cancel anytime. All plans include a 14-day free trial.</p>
+
+      <div class="billing-toggle">
+        <span id="toggleMonthly" class="toggle-opt active">Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="billingSwitch">
+          <span class="slider-switch"></span>
+        </label>
+        <span id="toggleYearly" class="toggle-opt">Yearly <em class="save-badge">Save 20%</em></span>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price"><span class="currency">₹</span><span class="amount" data-monthly="0" data-yearly="0">0</span><span class="period">/mo</span></div>
+          <div class="plan-desc">Perfect for side projects and learning.</div>
+          <ul class="plan-features">
+            <li>✓ 1 Project</li><li>✓ 10GB Storage</li><li>✓ 100K API calls/mo</li>
+            <li>✓ Community support</li><li>✓ Basic analytics</li>
+            <li class="disabled">✗ Custom domains</li><li class="disabled">✗ Team members</li>
+          </ul>
+          <button class="plan-btn outline">Get Started Free</button>
+        </div>
+        <div class="price-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price"><span class="currency">₹</span><span class="amount" data-monthly="1999" data-yearly="1599">1999</span><span class="period">/mo</span></div>
+          <div class="plan-desc">For freelancers and growing teams.</div>
+          <ul class="plan-features">
+            <li>✓ 10 Projects</li><li>✓ 100GB Storage</li><li>✓ 5M API calls/mo</li>
+            <li>✓ Priority email support</li><li>✓ Advanced analytics</li>
+            <li>✓ 3 Custom domains</li><li>✓ 5 Team members</li>
+          </ul>
+          <button class="plan-btn filled">Start Free Trial</button>
+        </div>
+        <div class="price-card">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price"><span class="currency">₹</span><span class="amount" data-monthly="7999" data-yearly="6399">7999</span><span class="period">/mo</span></div>
+          <div class="plan-desc">For large teams with compliance needs.</div>
+          <ul class="plan-features">
+            <li>✓ Unlimited Projects</li><li>✓ 2TB Storage</li><li>✓ Unlimited API calls</li>
+            <li>✓ 24/7 dedicated support</li><li>✓ Custom dashboards</li>
+            <li>✓ Unlimited domains</li><li>✓ Unlimited members</li>
+          </ul>
+          <button class="plan-btn outline">Contact Sales</button>
+        </div>
+      </div>
+      <p class="price-note">All prices in INR · GST applicable · Secure payments via Razorpay</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:10px;text-decoration:none;color:inherit">
+          <div class="logo-icon">IT</div> Info Tech
+        </div>
+        <p>Building the future of technology,<br>one commit at a time.</p>
+      </div>
+      <div class="footer-links">
+        <div><strong>Product</strong><a href="#product">IntelliCore AI</a><a href="#product">CloudDeploy</a><a href="#product">SecureVault</a></div>
+        <div><strong>Company</strong><a href="#about">About</a><a href="#category">Blog</a><a href="#price">Careers</a></div>
+        <div><strong>Legal</strong><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Info Tech Pvt. Ltd. · Made with ♥ in Chennai</div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <div class="toast-dot"></div>
+    <span id="toastMsg">Welcome!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
