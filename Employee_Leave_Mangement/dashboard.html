@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELMS — Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar glass" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-icon">🌿</span>
+      <span>ELMS</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link active">
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="apply-leave.html" class="nav-link">
+        <span class="nav-icon">📝</span>
+        <span>Apply Leave</span>
+      </a>
+      <a href="#" class="nav-link" onclick="showToast('Calendar coming soon!','info')">
+        <span class="nav-icon">📅</span>
+        <span>Calendar</span>
+        <span class="badge">Soon</span>
+      </a>
+      <a href="#" class="nav-link" onclick="showToast('Reports coming soon!','info')">
+        <span class="nav-icon">📈</span>
+        <span>Reports</span>
+        <span class="badge">Soon</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="user-chip glass">
+        <span class="user-avatar">👤</span>
+        <div>
+          <strong>Admin</strong>
+          <small>Super Admin</small>
+        </div>
+      </div>
+      <button class="btn-icon" onclick="toggleTheme()" title="Toggle Theme">🌙</button>
+      <button class="btn-icon danger" onclick="logout()" title="Logout">🚪</button>
+    </div>
+  </aside>
+
+  <!-- Mobile menu toggle -->
+  <button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+
+  <!-- Main Content -->
+  <main class="content" id="mainContent">
+    <div class="page-header">
+      <div>
+        <h1>Dashboard <span class="greeting" id="greeting"></span></h1>
+        <p class="subtitle" id="dateDisplay"></p>
+      </div>
+      <button class="btn-primary" onclick="location='apply-leave.html'">+ New Leave</button>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="card-grid">
+      <div class="stat-card glass" data-color="blue">
+        <div class="stat-icon">📋</div>
+        <div class="stat-info">
+          <span class="stat-label">Total Leaves</span>
+          <span class="stat-num" id="total">0</span>
+        </div>
+        <div class="stat-trend up">↑ All time</div>
+      </div>
+
+      <div class="stat-card glass" data-color="green">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <span class="stat-label">Approved</span>
+          <span class="stat-num" id="approved">0</span>
+        </div>
+        <div class="stat-trend up" id="approvalRate">— %</div>
+      </div>
+
+      <div class="stat-card glass" data-color="amber">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-info">
+          <span class="stat-label">Pending</span>
+          <span class="stat-num" id="pending">0</span>
+        </div>
+        <div class="stat-trend neutral">Awaiting review</div>
+      </div>
+
+      <div class="stat-card glass" data-color="red">
+        <div class="stat-icon">❌</div>
+        <div class="stat-info">
+          <span class="stat-label">Rejected</span>
+          <span class="stat-num" id="rejected">0</span>
+        </div>
+        <div class="stat-trend down" id="rejectionRate">— %</div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-row">
+      <div class="chart-card glass">
+        <h3>Leave Distribution</h3>
+        <div class="chart-wrap">
+          <canvas id="donutChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card glass wide">
+        <h3>Monthly Overview</h3>
+        <div class="chart-wrap">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Leaves -->
+    <div class="recent-card glass">
+      <div class="section-header">
+        <h3>Recent Applications</h3>
+        <a href="apply-leave.html" class="link-btn">View All →</a>
+      </div>
+      <div id="recentLeaves" class="recent-list"></div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

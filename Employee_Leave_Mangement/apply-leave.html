@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELMS — Apply Leave</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar glass" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-icon">🌿</span>
+      <span>ELMS</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link">
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="apply-leave.html" class="nav-link active">
+        <span class="nav-icon">📝</span>
+        <span>Apply Leave</span>
+      </a>
+      <a href="#" class="nav-link" onclick="showToast('Calendar coming soon!','info')">
+        <span class="nav-icon">📅</span>
+        <span>Calendar</span>
+        <span class="badge">Soon</span>
+      </a>
+      <a href="#" class="nav-link" onclick="showToast('Reports coming soon!','info')">
+        <span class="nav-icon">📈</span>
+        <span>Reports</span>
+        <span class="badge">Soon</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="user-chip glass">
+        <span class="user-avatar">👤</span>
+        <div>
+          <strong>Admin</strong>
+          <small>Super Admin</small>
+        </div>
+      </div>
+      <button class="btn-icon" onclick="toggleTheme()" title="Toggle Theme">🌙</button>
+      <button class="btn-icon danger" onclick="logout()" title="Logout">🚪</button>
+    </div>
+  </aside>
+
+  <button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+
+  <main class="content" id="mainContent">
+    <div class="page-header">
+      <div>
+        <h1>Apply Leave</h1>
+        <p class="subtitle">Submit and manage your leave requests</p>
+      </div>
+    </div>
+
+    <div class="two-col-layout">
+      <!-- Leave Form -->
+      <div class="form-card glass">
+        <h3>New Leave Request</h3>
+
+        <div class="form-group">
+          <label>Employee Name</label>
+          <div class="input-wrap">
+            <span class="input-icon">👤</span>
+            <input id="empName" type="text" placeholder="Full name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Leave Type</label>
+          <div class="input-wrap select-wrap">
+            <span class="input-icon">🏷</span>
+            <select id="leaveType">
+              <option value="Sick Leave">🤒 Sick Leave</option>
+              <option value="Casual Leave">☀️ Casual Leave</option>
+              <option value="Vacation">✈️ Vacation</option>
+              <option value="Maternity Leave">🤱 Maternity Leave</option>
+              <option value="Paternity Leave">👨‍👦 Paternity Leave</option>
+              <option value="Emergency Leave">🚨 Emergency Leave</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="date-row">
+          <div class="form-group">
+            <label>From Date</label>
+            <div class="input-wrap">
+              <input type="date" id="fromDate" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>To Date</label>
+            <div class="input-wrap">
+              <input type="date" id="toDate" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" id="daysDisplay" style="display:none">
+          <div class="days-chip">📅 <strong id="totalDays">0</strong> working day(s) selected</div>
+        </div>
+
+        <div class="form-group">
+          <label>Reason <span class="optional">(optional)</span></label>
+          <textarea id="reason" placeholder="Briefly describe the reason for your leave..." rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Priority</label>
+          <div class="priority-row">
+            <label class="priority-opt">
+              <input type="radio" name="priority" value="Normal" checked>
+              <span>Normal</span>
+            </label>
+            <label class="priority-opt urgent">
+              <input type="radio" name="priority" value="Urgent">
+              <span>🔥 Urgent</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-primary full" onclick="applyLeave()">
+          Submit Request
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Leave Balance -->
+      <div class="balance-card glass">
+        <h3>Leave Balance</h3>
+        <div class="balance-list">
+          <div class="balance-item">
+            <div class="balance-label">🤒 Sick Leave</div>
+            <div class="balance-bar-wrap">
+              <div class="balance-bar" style="--w:60%; --c:#60a5fa"></div>
+            </div>
+            <span class="balance-val">6/10</span>
+          </div>
+          <div class="balance-item">
+            <div class="balance-label">☀️ Casual Leave</div>
+            <div class="balance-bar-wrap">
+              <div class="balance-bar" style="--w:40%; --c:#34d399"></div>
+            </div>
+            <span class="balance-val">4/10</span>
+          </div>
+          <div class="balance-item">
+            <div class="balance-label">✈️ Vacation</div>
+            <div class="balance-bar-wrap">
+              <div class="balance-bar" style="--w:80%; --c:#a78bfa"></div>
+            </div>
+            <span class="balance-val">12/15</span>
+          </div>
+          <div class="balance-item">
+            <div class="balance-label">🚨 Emergency</div>
+            <div class="balance-bar-wrap">
+              <div class="balance-bar" style="--w:20%; --c:#f87171"></div>
+            </div>
+            <span class="balance-val">1/5</span>
+          </div>
+        </div>
+
+        <div class="policy-box">
+          <h4>📌 Leave Policy</h4>
+          <ul>
+            <li>Apply at least 2 days in advance</li>
+            <li>Emergency leaves can be applied same day</li>
+            <li>Sick leave requires medical certificate beyond 3 days</li>
+            <li>Approval within 24–48 hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leave Table -->
+    <div class="table-card glass">
+      <div class="section-header">
+        <h3>All Requests</h3>
+        <div class="table-controls">
+          <input id="searchInput" type="text" placeholder="🔍 Search..." oninput="filterLeaves()" class="search-input">
+          <select id="filterStatus" onchange="filterLeaves()" class="filter-select">
+            <option value="">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Employee</th>
+              <th>Type</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Days</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leaveTable"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state hidden">
+          <span>📭</span>
+          <p>No leave requests found</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Confirm Modal -->
+  <div id="modal" class="modal-overlay hidden">
+    <div class="modal-box glass">
+      <h3 id="modalTitle">Confirm Action</h3>
+      <p id="modalMsg">Are you sure?</p>
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn-primary" id="modalConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
